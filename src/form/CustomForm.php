@@ -11,8 +11,9 @@ class CustomForm extends IForm {
     /** @var array<int|string> */
     private array $labelMap = [];
 
-    /** @var array<callable> */
+    /** @var array<callable(mixed): bool> */
     private array $validationMethods = [];
+
 
     /**
      * @param callable(?array): void|null $callable
