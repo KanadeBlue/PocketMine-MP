@@ -205,16 +205,16 @@
         },
         {
             "name": "pocketmine/bedrock-protocol",
-            "version": "35.0.4+bedrock-1.21.40",
+            "version": "35.0.5+bedrock-1.21.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/STCraftNetwork/BedrockProtocol.git",
-                "reference": "dc9eacdc5bbdd35c960a4576a6944f6cb692ab50"
+                "reference": "85a80fcf26e2319840218ff408eba11be71f1afe"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/STCraftNetwork/BedrockProtocol/zipball/6aa7cbeb4a7ec6fa58f9024aeaddad7c5c65a459",
-                "reference": "dc9eacdc5bbdd35c960a4576a6944f6cb692ab50",
+                "reference": "85a80fcf26e2319840218ff408eba11be71f1afe",
                 "shasum": ""
             },
             "require": {
