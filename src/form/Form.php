@@ -24,19 +24,50 @@ declare(strict_types=1);
 namespace pocketmine\form;
 
 use pocketmine\player\Player;
+use InvalidArgumentException;
 
 /**
  * Form implementations must implement this interface to be able to utilize the Player form-sending mechanism.
  * There is no restriction on custom implementations other than that they must implement this.
  */
-interface Form extends \JsonSerializable{
+interface Form extends \JsonSerializable
+{
+    /**
+     * @param callable(Player, mixed): void|null $callable
+     */
+    public function __construct(?callable $callable);
 
-	/**
-	 * Handles a form response from a player.
-	 *
-	 * @param mixed $data
-	 *
-	 * @throws FormValidationException if the data could not be processed
-	 */
-	public function handleResponse(Player $player, $data) : void;
+    /**
+     * @param Player $player
+     * @throws InvalidArgumentException
+     * @deprecated
+     * @see Player::sendForm()
+     */
+    public function sendToPlayer(Player $player) : void;
+
+    /**
+     * @return callable(Player, mixed): void|null
+     */
+    public function getCallable() : ?callable;
+
+    /**
+     * @param callable(Player, mixed): void|null $callable
+     */
+    public function setCallable(?callable $callable) : void;
+
+    /**
+     * @param Player $player
+     * @param mixed $data
+     */
+    public function handleResponse(Player $player, $data) : void;
+
+    /**
+     * @param mixed $data
+     */
+    public function processData(&$data) : void;
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function jsonSerialize() : array;
 }
